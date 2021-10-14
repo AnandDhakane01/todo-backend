@@ -112,6 +112,10 @@ exports.updateTodo = async (req, res) => {
             return res.status(200).json({
                 message: "todo updated",
             });
+        } else {
+            return res.status(404).json({
+                message: "invalid request",
+            });
         }
     } catch (err) {
         return res.status(404).json({
