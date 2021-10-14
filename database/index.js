@@ -45,4 +45,3 @@ sequelize.sync();
 })();
 
 module.exports = sequelize;
-exports.Pool = Pool;
