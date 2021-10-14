@@ -9,9 +9,7 @@ const {
     app_port,
 } = require("../config");
 
-const sequelize = new Sequelize(
-    "postgresql://postgres:65ejzEIL3gRMLZcUdWAD@containers-us-west-19.railway.app:6958/railway"
-);
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 sequelize.sync();
 
