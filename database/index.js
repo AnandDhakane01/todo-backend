@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+var pg = require("pg");
 pg.defaults.ssl = true;
 
 const {
@@ -8,9 +9,25 @@ const {
     sequelize_dialect,
     sequelize_host,
     app_port,
+    URI,
 } = require("../config");
 
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+// const sequelize = new Sequelize(URI);
+
+const sequelize = new Sequelize({
+    database: sequelize_database,
+    username: sequelize_username,
+    password: sequelize_password,
+    host: sequelize_host,
+    port: app_port,
+    dialect: sequelize_dialect,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false, // <<<<<<< YOU NEED THIS
+        },
+    },
+});
 
 sequelize.sync();
 

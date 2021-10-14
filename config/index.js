@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 
 module.exports = {
     PORT: process.env.PORT,
@@ -9,4 +9,5 @@ module.exports = {
     sequelize_dialect: process.env.SEQUELIZE_DIALECT,
     app_port: process.env.PORT,
     SECRET: process.env.SECRET,
+    URI: process.env.URI,
 };
