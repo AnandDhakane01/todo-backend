@@ -1,8 +1,8 @@
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(
-    "postgresql://postgres:65ejzEIL3gRMLZcUdWAD@containers-us-west-19.railway.app:6958/railway"
-);
+const { URI } = require("../config/index");
+
+const sequelize = new Sequelize(process.env.URI);
 
 sequelize.sync();
 
